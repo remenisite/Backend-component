@@ -1,4 +1,4 @@
-const conversationSchema = require("../models/conversationSchema");
+const smsSchema = require("../models/smsSchema");
 const userSchema = require("../models/userSchema");
 
 const addANewFriend = async (req, res) => {

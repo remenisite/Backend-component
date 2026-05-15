@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const convSchema = new mongoose.Schema(
+const smsSchema = new mongoose.Schema(
   {
     creator: {
       type: mongoose.Types.ObjectId,
@@ -20,4 +20,4 @@ const convSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
-module.exports = mongoose.model("convSchema", convSchema);
+module.exports = mongoose.model("smsSchema", smsSchema);
