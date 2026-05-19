@@ -1,23 +1,26 @@
 const mongoose = require("mongoose");
 
-const smsSchema = new mongoose.Schema(
-  {
-    creator: {
-      type: mongoose.Types.ObjectId,
-      ref: "user",
-      required: true,
-    },
-    participent: {
-      type: mongoose.Types.ObjectId,
-      ref: "user",
-      required: true,
-    },
-    lastMessage: {
-      type: String,
-      default: null,
-    },
+const smsSchema = new mongoose.Schema({
+  contentType: {
+    type: String,
+    required: true,
+    default: "text",
+    enum: ["text", "image", "video", "voice"],
   },
-  { timestamps: true },
-);
+  content: {
+    type: String,
+    required: true,
+  },
+  sender: {
+    type: mongoose.Types.ObjectId,
+    ref: "user",
+    required: true,
+  },
+  conversation: {
+    type: mongoose.Types.ObjectId,
+    ref: "convSchema",
+    required: true,
+  },
+});
 
 module.exports = mongoose.model("smsSchema", smsSchema);
